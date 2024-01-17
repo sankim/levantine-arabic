@@ -63,16 +63,25 @@ h1 {
     margin: auto;
     overflow: hidden;
     clear: both;
+    /* min-width: 500px; */
 }
 
 .conj-col-subj {
     float: left;
-    width: 100px;
+    width: 80px;
     margin: 10px;
     text-align: center;
     color: #777;
 }
 
+@media only screen and (min-width: 500px) {
+    .add-subj {
+        display: none;
+    }
+}
+.add-subj {
+    clear:left;
+}
 .conj-two-col {
     float: left;
     width: 140px;
