@@ -29,7 +29,7 @@ body {
 }
 
 .main {
-    padding: 40px 0px;
+    margin-top: 40px;
     font-size: 14px;
     text-align: center;
 }
@@ -118,16 +118,16 @@ h1 {
     font-size: 16px;
     max-width: 500px;
     margin: auto;
-    padding: 10px 0;
+    padding: 10px 10px;
 }
 
 .home-verbs {
     clear: both;
     margin: 40px auto;
-    max-width: 600px;
-    min-width: 400px;
+    max-width: 700px;
+    /* min-width: 400px; */
     text-align: center;
-    display: inline-block;
+    /* display: inline-block; */
 
 }
 
@@ -147,8 +147,10 @@ h1 {
 
 .home-verb-entry {
     width: 200px;
-    float: left;
-    text-align: center;
+    /* height: 60px; */
+    display: inline-block;
+    /* float: left; */
+    /* text-align: center; */
     margin: 10px 0;
     font-size: 16px;
 }
