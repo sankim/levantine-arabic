@@ -29,13 +29,16 @@ body {
 }
 
 .main {
-    padding: 40px 100px;
+    padding: 40px 0px;
     font-size: 14px;
+    text-align: center;
+
 }
 
 .title-card {
     clear: both;
     margin: 0 0 30px 0;
+    text-align: center;
 }
 
 h1 {
@@ -45,12 +48,15 @@ h1 {
 .conj-wrap {
     overflow: hidden;
     border: 1px #888 solid;
-    margin: auto;
+    margin: 0 auto;
     width: auto;
     /* display: inline; */
-    display: block;
+    /* display: block;
     float: left;
-    position: relative;
+    position: relative; */
+    text-align: center;
+    min-width: 240px;
+    display: inline-block;
 }
 
 .conj-wrap-row {
