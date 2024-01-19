@@ -16,6 +16,19 @@
             window.onload = function(){
                 $.get("../assets/navbar.html", function(data){
                     $(".navbar").html(data);
+                    
+                })
+                $.get(`https://levantine-arabic-default-rtdb.firebaseio.com/verbs.json`, function(data){
+                    console.log(data);
+                    for(const conjugation of data.verbs_root.verbs) {
+                        const homeEntryDiv = document.createElement("div")
+                        homeEntryDiv.className = "home-verb-entry"
+                        const homeEntryA = document.createElement("a")
+                        homeEntryA.href = "verb.html?stem=" + en
+                        homeEntryA.innerHTML = conjugation.en
+                        homeEntryDiv.appendChild(homeEntryA)
+                        $("#home-verbs-list").append(homeEntryDiv)
+                    }
                 })
             }
         </script>    
@@ -24,10 +37,11 @@
                 <p>Conjugation and other resources for Levantine Arabic (Lebanese dialect).</p>
                 <p>Bug reports and corrections to sankim83@gmail.com.</p>
             </div>
-            <div class="home-verbs">
+            <div class="home-verbs" id="home-verbs-list">
                 <h2>Verb conjugation</h2>
+
                 <div class="home-verb-entry"><a href="verbs/raa7.html">raa7 (to go)</a></div>
-                <div class="home-verb-entry"><a href="verbs/3emel.html">3emel (to do)</a></div>
+                <div class="home-verb-entry"><a href="verbs/3imil.html">3imil (to do)</a></div>
                 <div class="home-verb-entry"><a href="verbs/2ija.html">2ija (to come)</a></div>
                 <div class="home-verb-entry"><a href="verbs/2akhad.html">2akhad (to take)</a></div>
                 <div class="home-verb-entry"><a href="verbs/2akal.html">2akal (to eat)</a></div>

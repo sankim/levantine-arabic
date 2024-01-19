@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Raa7: to go | Levantine Arabic Reference</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="../css/main.css">
+        <style>
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="navbar">
+        </div>
+        <script>
+            window.onload = function(){
+                $.get("../assets/navbar.html", function(data){
+                    $(".navbar").html(data);
+                })
+                let searchParams = new URLSearchParams(window.location.search)
+                let param = searchParams.get('stem')
+                $.get(`https://levantine-arabic-default-rtdb.firebaseio.com/verbs/${param}.json`, function(data){
+                    console.log(data);
+                    for(const conjugation of data.conjugations) {
+                        const entryDiv = document.createElement("div")
+                        entryDiv.className = "entry"
+                        const trans = document.createElement("div")
+                        trans.className = "en"
+                        trans.innerHTML = conjugation.trans
+                        entryDiv.appendChild(trans)
+                        const ar = document.createElement("div")
+                        ar.className = "ar"
+                        ar.innerHTML = conjugation.ar
+                        entryDiv.appendChild(ar)
+                        if (conjugation.tense == "past") {
+                            $("#list-conj-past").append(entryDiv)
+                        }
+                        if (conjugation.tense == "pres") {
+                            $("#list-conj-pres").append(entryDiv)
+                        }
+                    }
+                })
+            }
+        </script>
+        <div class="main">
+            <div class="title-card">
+                <h1>Raa7: to go</h1>
+            </div>
+            <div class="conj-wrap">
+                <div class="conj-wrap-row">
+                    <div class="conj-col-subj">
+                        <div class="title">&nbsp;</div>
+                        <div class="entry">ana</div>
+                        <div class="entry">ne7na</div>
+                        <div class="entry">enta</div>
+                        <div class="entry">ente</div>
+                        <div class="entry">ento</div>
+                        <div class="entry">howwe</div>
+                        <div class="entry">hiyye</div>
+                        <div class="entry">henne</div>
+                    </div>
+                    <div class="conj-two-col">
+                        <div class="list-conj" id="list-conj-past">
+                            <div class="title">Past</div>
+                        </div>
+                    </div>
+                    <div class="conj-col-subj add-subj">
+                        <div class="title">&nbsp;</div>
+                        <div class="entry">ana</div>
+                        <div class="entry">ne7na</div>
+                        <div class="entry">enta</div>
+                        <div class="entry">ente</div>
+                        <div class="entry">ento</div>
+                        <div class="entry">howwe</div>
+                        <div class="entry">hiyye</div>
+                        <div class="entry">henne</div>
+                    </div>
+                    <div class="conj-two-col">
+                        <div class="list-conj" id="list-conj-pres">
+                            <div class="title">Present</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="conj-wrap-row">
+                    <div class="conj-col-subj">
+                        <div class="title">&nbsp;</div>
+                        <div class="entry">m</div>
+                        <div class="entry">f</div>
+                        <div class="entry">pl</div>
+                    </div>
+                    <div class="conj-two-col">
+                        <div class="list-conj">
+                            <div class="title">Active part.</div>
+                            <div class="entry">
+                                <div class="en">rayi7</div>
+                                <div class="ar">رِحِت</div>
+                            </div>
+                            <div class="entry">
+                                <div class="en">ray7a</div>
+                                <div class="ar">رِحنا</div>
+                            </div>
+                            <div class="entry">
+                                <div class="en">ray7iin</div>
+                                <div class="ar">رِحِت</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="conj-wrap-row">
+                    <div class="conj-col-subj">
+                        <div class="title">&nbsp;</div>
+                        <div class="entry">enta</div>
+                        <div class="entry">ente</div>
+                        <div class="entry">ento</div>
+                    </div>
+                    <div class="conj-two-col">
+                        <div class="list-conj">
+                            <div class="title">Imperative</div>
+                            <div class="entry">
+                                <div class="en">rou7</div>
+                                <div class="ar">روح</div>
+                            </div>
+                            <div class="entry">
+                                <div class="en">rou7e</div>
+                                <div class="ar">روحي</div>
+                            </div>
+                            <div class="entry">
+                                <div class="en">rou7o</div>
+                                <div class="ar">روحو</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </body>
+</html>
