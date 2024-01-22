@@ -16,21 +16,27 @@
             window.onload = function(){
                 $.get("../assets/navbar.html", function(data){
                     $(".navbar").html(data);
-                    
                 })
                 $.get(`https://levantine-arabic-default-rtdb.firebaseio.com/verbs.json`, function(data){
                 // $.get(`levantine-arabic-default-rtdb-verbs-export.json`, function(data){
+                    var sort_array = [];
+                    for (var key in data) {
+                        sort_array.push({key:key,en:data[key].en,rank:data[key].rank});
+                    }
+                    sort_array.sort(function(x,y){return x.rank - y.rank});
                     console.log(data);
-                    for(const [key, value] of Object.entries(data)) {
+                    console.log(sort_array);
+                    for (var i=0;i<sort_array.length;i++) {
+                        var item = data[sort_array[i].key];
+                        console.log(item);
                         const homeEntryDiv = document.createElement("div")
                         homeEntryDiv.className = "home-verb-entry"
                         const homeEntryA = document.createElement("a")
-                        homeEntryA.href = `verb.html?stem=${key}`
-                        // homeEntryA.innerHTML = key
-                        homeEntryA.innerHTML = `${key} (${value.en})`
+                        homeEntryA.href = `verb.html?stem=${sort_array[i].key}`
+                        homeEntryA.innerHTML = `${sort_array[i].key} (${item.en})`
                         homeEntryDiv.appendChild(homeEntryA)
                         $("#home-verbs-list").append(homeEntryDiv)
-                    }
+                    };
                 })
             }
         </script>    
