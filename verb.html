@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Raa7: to go | Levantine Arabic Reference</title>
+        <title id="meta-title"></title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="../css/main.css">
         <style>
@@ -38,13 +38,24 @@
                         if (conjugation.tense == "pres") {
                             $("#list-conj-pres").append(entryDiv)
                         }
+                        if (conjugation.tense == "ap") {
+                            $("#list-conj-ap").append(entryDiv)
+                        }
+                        if (conjugation.tense == "imp") {
+                            $("#list-conj-imp").append(entryDiv)
+                        }
                     }
+                    const titleH1 = document.createElement("h1")
+                    titleH1.idName = "verb-title-text"
+                    titleH1.innerHTML = `${param}: ${data.en}`
+                    $(".title-card").append(titleH1)
+                    const metaTitleText = `${param}: ${data.en} | Levantine Arabic Reference`
+                    $("#meta-title").append(metaTitleText)
                 })
             }
         </script>
         <div class="main">
             <div class="title-card">
-                <h1>Raa7: to go</h1>
             </div>
             <div class="conj-wrap">
                 <div class="conj-wrap-row">
@@ -89,20 +100,8 @@
                         <div class="entry">pl</div>
                     </div>
                     <div class="conj-two-col">
-                        <div class="list-conj">
+                        <div class="list-conj" id="list-conj-ap">
                             <div class="title">Active part.</div>
-                            <div class="entry">
-                                <div class="en">rayi7</div>
-                                <div class="ar">رِحِت</div>
-                            </div>
-                            <div class="entry">
-                                <div class="en">ray7a</div>
-                                <div class="ar">رِحنا</div>
-                            </div>
-                            <div class="entry">
-                                <div class="en">ray7iin</div>
-                                <div class="ar">رِحِت</div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -114,20 +113,8 @@
                         <div class="entry">ento</div>
                     </div>
                     <div class="conj-two-col">
-                        <div class="list-conj">
+                        <div class="list-conj" id="list-conj-imp">
                             <div class="title">Imperative</div>
-                            <div class="entry">
-                                <div class="en">rou7</div>
-                                <div class="ar">روح</div>
-                            </div>
-                            <div class="entry">
-                                <div class="en">rou7e</div>
-                                <div class="ar">روحي</div>
-                            </div>
-                            <div class="entry">
-                                <div class="en">rou7o</div>
-                                <div class="ar">روحو</div>
-                            </div>
                         </div>
                     </div>
                 </div>    

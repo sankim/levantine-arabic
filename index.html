@@ -19,13 +19,15 @@
                     
                 })
                 $.get(`https://levantine-arabic-default-rtdb.firebaseio.com/verbs.json`, function(data){
+                // $.get(`levantine-arabic-default-rtdb-verbs-export.json`, function(data){
                     console.log(data);
-                    for(const conjugation of data.verbs_root.verbs) {
+                    for(const [key, value] of Object.entries(data)) {
                         const homeEntryDiv = document.createElement("div")
                         homeEntryDiv.className = "home-verb-entry"
                         const homeEntryA = document.createElement("a")
-                        homeEntryA.href = "verb.html?stem=" + en
-                        homeEntryA.innerHTML = conjugation.en
+                        homeEntryA.href = `verb.html?stem=${key}`
+                        // homeEntryA.innerHTML = key
+                        homeEntryA.innerHTML = `${key} (${value.en})`
                         homeEntryDiv.appendChild(homeEntryA)
                         $("#home-verbs-list").append(homeEntryDiv)
                     }
@@ -39,22 +41,6 @@
             </div>
             <div class="home-verbs" id="home-verbs-list">
                 <h2>Verb conjugation</h2>
-
-                <div class="home-verb-entry"><a href="verbs/raa7.html">raa7 (to go)</a></div>
-                <div class="home-verb-entry"><a href="verbs/3imil.html">3imil (to do)</a></div>
-                <div class="home-verb-entry"><a href="verbs/2ija.html">2ija (to come)</a></div>
-                <div class="home-verb-entry"><a href="verbs/2akhad.html">2akhad (to take)</a></div>
-                <div class="home-verb-entry"><a href="verbs/2akal.html">2akal (to eat)</a></div>
-                <div class="home-verb-entry"><a href="verbs/bi2e.html">bi2e (to spend, to become)</a></div>
-                <div class="home-verb-entry"><a href="verbs/ballash.html">ballash (to begin)</a></div>
-                <div class="home-verb-entry"><a href="verbs/t3allam.html">t3allam (to learn)</a></div>
-                <div class="home-verb-entry"><a href="verbs/tghadda.html">tghadda (to have lunch)</a></div>
-                <div class="home-verb-entry"><a href="verbs/jeeb.html">jeeb (to bring)</a></div>
-                <div class="home-verb-entry"><a href="verbs/7abb.html">7abb (to like)</a></div>
-                <div class="home-verb-entry"><a href="verbs/7arrak.html">7arrak (to move)</a></div>
-                <div class="home-verb-entry"><a href="verbs/7ass.html">7ass (to feel)</a></div>
-                <div class="home-verb-entry"><a href="verbs/7idir.html">7idir (to watch)</a></div>
-                <div class="home-verb-entry">blah (to blah)</div>
             </div>
         </div>
     </body>
