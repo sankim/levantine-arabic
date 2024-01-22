@@ -19,16 +19,14 @@
                 })
                 $.get(`https://levantine-arabic-default-rtdb.firebaseio.com/verbs.json`, function(data){
                 // $.get(`levantine-arabic-default-rtdb-verbs-export.json`, function(data){
+                    console.log(data);
                     var sort_array = [];
                     for (var key in data) {
-                        sort_array.push({key:key,en:data[key].en,rank:data[key].rank});
+                        sort_array.push({key:key, en:data[key].en, rank:data[key].rank});
                     }
                     sort_array.sort(function(x,y){return x.rank - y.rank});
-                    console.log(data);
-                    console.log(sort_array);
                     for (var i=0;i<sort_array.length;i++) {
                         var item = data[sort_array[i].key];
-                        console.log(item);
                         const homeEntryDiv = document.createElement("div")
                         homeEntryDiv.className = "home-verb-entry"
                         const homeEntryA = document.createElement("a")
