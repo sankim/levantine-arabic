@@ -42,7 +42,7 @@
                         homeEntryDiv.className = "home-verb-entry"
                         const homeEntryA = document.createElement("a")
                         homeEntryA.href = `verb.html?stem=${sort_array[i].key}`
-                        homeEntryA.innerHTML = `${sort_array[i].key} (${item.en})`
+                        homeEntryA.innerHTML = `${sort_array[i].key} - ${item.en}`
                         homeEntryDiv.appendChild(homeEntryA)
                         $("#home-verbs-list").append(homeEntryDiv)
                     };
